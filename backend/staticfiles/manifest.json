@@ -1,10 +1,10 @@
 {
   "index.html": {
-    "file": "assets/index.9521d9ae.js",
+    "file": "assets/index.e858a042.js",
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "_vendor.abd5bd5d.js"
+      "_vendor.6fb8fabe.js"
     ],
     "css": [
       "assets/index.cd9c0392.css"
@@ -13,7 +13,7 @@
       "assets/logo.ecc203fb.svg"
     ]
   },
-  "_vendor.abd5bd5d.js": {
-    "file": "assets/vendor.abd5bd5d.js"
+  "_vendor.6fb8fabe.js": {
+    "file": "assets/vendor.6fb8fabe.js"
   }
 }

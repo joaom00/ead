@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from rest_framework import mixins, generics, permissions
 
-# Create your views here.
+from .models import Customer
+from .serializers import CustomerSerializer
+
+class CustomerListAPIView(generics.ListAPIView):
+    serializer_class = CustomerSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Customer.objects.all()

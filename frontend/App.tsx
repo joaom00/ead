@@ -1,43 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const [customers, setCustomers] = useState<any>([])
+
+  useEffect(() => {
+    const loadData = () => {
+      fetch('http://127.0.0.1:8000/api/customers/')
+      .then(response => response.json())
+      .then(data => setCustomers(data))
+    }
+    loadData();
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Testando</h1>
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+        {customers.map(customer => (
+          <h1 key={customer.id}>{customer.first_name} {customer.last_name}</h1>
+        ))}
       </header>
     </div>
   )
